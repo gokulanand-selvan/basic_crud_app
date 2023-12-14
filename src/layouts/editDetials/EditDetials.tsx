@@ -20,7 +20,6 @@ export default function EditDetials({
     city: string;
   };
 }) {
-  const [employeeId, setEmployeeId] = useState<number>(EmployeeData.id);
   const [firstName, setFirstName] = useState(EmployeeData.first_name);
   const [lastName, setLastName] = useState(EmployeeData.last_name);
   const [city, setCity] = useState(EmployeeData.city);
@@ -28,6 +27,7 @@ export default function EditDetials({
   // if (isOpen === false) {
   //   setEmployeeData({});
   // }
+  const employeeId = EmployeeData.id;
 
   function saveChanges(e: any) {
     e.preventDefault();
