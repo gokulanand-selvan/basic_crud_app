@@ -1,0 +1,63 @@
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.dialog_title {
+  padding: 0 2rem 0.5rem 2rem;
+}
+
+.form_container {
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.form_input {
+  gap: 0.2rem;
+}
+.form_input > label {
+  font-weight: bold;
+}
+
+.form_input > textarea {
+  padding: 8px;
+  resize: vertical;
+}
+
+.form_input > input {
+  width: 100%;
+  padding: 8px;
+}
+.btn_container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action_btn {
+  padding: 10px 20px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  gap: 5px;
+}
+
+.cancel_btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgrey;
+}

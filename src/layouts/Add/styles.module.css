@@ -1,0 +1,30 @@
+.dialogInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.btn_container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action_btn {
+  padding: 10px 20px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  gap: 5px;
+}
+
+.cancel_btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgrey;
+}

@@ -1,0 +1,38 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 3rem;
+}
+.table {
+  width: 100%;
+}
+.th {
+  position: sticky;
+  top: 0;
+  background-color: lightgrey;
+}
+.tabelConatiner {
+  display: flex;
+  flex-direction: column;
+  max-height: 75vh;
+  height: 60.3em;
+  width: 100%;
+  overflow: auto;
+  border: 1px solid black;
+  margin: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-bottom: 1rem;
+}
+.tabelConatiner::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
