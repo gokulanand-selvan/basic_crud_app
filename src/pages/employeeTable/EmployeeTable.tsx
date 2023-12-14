@@ -1,9 +1,14 @@
 import styles from "./style.module.css";
 import dummyData from "../../utils/MOCK_DATA.json";
-import { RiDeleteBin6Fill, RiEditBoxFill } from "react-icons/ri";
+import {
+  RiDeleteBin6Fill,
+  RiDownload2Fill,
+  RiEditBoxFill,
+} from "react-icons/ri";
 import { ChangeEvent, useState } from "react";
 import EditDetials from "../../layouts/editDetials/EditDetials";
-import { Dialog, Tooltip } from "@radix-ui/themes";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 import Add from "../../layouts/Add/Add";
 
 export default function EmployeeTable() {
@@ -51,12 +56,26 @@ export default function EmployeeTable() {
       return [...prev, newData];
     });
   }
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(mockData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    const blob = new Blob([excelBuffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+    });
+
+    saveAs(blob, "exportedData.xlsx");
+  };
   return (
     <>
       <div className={styles.navbar}>
         <h2>Employee Management</h2>
-        <div>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <b>Search:</b>
           <input
             type="text"
@@ -69,7 +88,7 @@ export default function EmployeeTable() {
           style={{ background: "black", color: "white" }}
           onClick={() => setisAddOpen(true)}
         >
-          Add
+          Add New Employee
         </button>
       </div>
       <div className={styles.tabelConatiner}>
@@ -134,6 +153,19 @@ export default function EmployeeTable() {
             ))}
         </table>
       </div>
+      <button
+        style={{
+          background: "black",
+          color: "white",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+        onClick={exportToExcel}
+      >
+        Download as Excel
+        <RiDownload2Fill style={{ display: "flex", fontSize: 25 }} />
+      </button>
       {EmployeeData.first_name ? (
         <EditDetials
           isOpen={isOpen}
