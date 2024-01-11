@@ -119,10 +119,10 @@ export default function EmployeeTable() {
                   .toLocaleLowerCase()
                   .includes(init.toLocaleLowerCase())
             )
-            .map((data) => (
+            .map((data, index) => (
               <tbody key={data.id}>
                 <tr key={data.id}>
-                  <td>{data.id}</td>
+                  <td>{index + 1}</td>
                   <td>{data.first_name}</td>
                   <td>{data.last_name}</td>
                   <td>{data.city}</td>
